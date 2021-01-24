@@ -109,7 +109,7 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
         style: BannerStyle = .info,
         colors: BannerColorsProtocol? = nil,
         iconPosition: IconPosition = .center,
-        sideViewSize: CGFloat = 24.0
+        sideViewSize: CGFloat = 14.0
     ) {
         
         self.leftView = leftView
