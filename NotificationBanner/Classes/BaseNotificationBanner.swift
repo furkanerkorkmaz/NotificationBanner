@@ -109,6 +109,8 @@ open class BaseNotificationBanner: UIView {
     /// Closure that will be executed if the notification banner is tapped
     public var onTap: (() -> Void)?
 
+    public var onTapRightView: (() -> Void)?
+
     /// Closure that will be executed if the notification banner is swiped up
     public var onSwipeUp: (() -> Void)?
 

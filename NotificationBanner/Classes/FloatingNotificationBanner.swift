@@ -80,8 +80,9 @@ open class FloatingNotificationBanner: GrowingNotificationBanner {
         if let subtitleTextAlign = subtitleTextAlign {
             subtitleLabel!.textAlignment = subtitleTextAlign
         }
+
     }
-    
+
     public init(customView: UIView) {
         super.init(style: .customView)
         self.customView = customView

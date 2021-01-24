@@ -53,12 +53,12 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
                 }
 
                 let titleHeight = ceil(titleLabel?.sizeThatFits(
-                    CGSize(width: boundingWidth,
-                           height: .greatestFiniteMagnitude)).height ?? 0.0)
+                                        CGSize(width: boundingWidth,
+                                               height: .greatestFiniteMagnitude)).height ?? 0.0)
 
                 let subtitleHeight = ceil(subtitleLabel?.sizeThatFits(
-                    CGSize(width: boundingWidth,
-                           height: .greatestFiniteMagnitude)).height ?? 0.0)
+                                            CGSize(width: boundingWidth,
+                                                   height: .greatestFiniteMagnitude)).height ?? 0.0)
 
                 let topOffset: CGFloat = shouldAdjustForNotchFeaturedIphone() ? 44.0 : verticalSpacing
                 let minHeight: CGFloat = shouldAdjustForNotchFeaturedIphone() ? 88.0 : 64.0
@@ -181,6 +181,10 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
         }
 
         if let rightView = rightView {
+            let tapGestureRecognizerRightView = UITapGestureRecognizer(target: self, action: #selector(tapRightView))
+            rightView.isUserInteractionEnabled = true
+            rightView.addGestureRecognizer(tapGestureRecognizerRightView)
+
             outerStackView.addArrangedSubview(rightView)
             rightView.snp.makeConstraints { make in
 
@@ -201,6 +205,10 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
 
             make.centerY.equalToSuperview()
         }
+    }
+
+    @objc private dynamic func tapRightView() {
+        onTapRightView?()
     }
 
     public required init?(coder aDecoder: NSCoder) {
